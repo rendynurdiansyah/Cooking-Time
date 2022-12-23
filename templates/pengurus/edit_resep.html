@@ -1,0 +1,43 @@
+{% extends 'pengurus/base.html' %}
+{% block content %}
+<div class="templatemo-content-container">
+    <div class="templatemo-content-widget white-bg">
+      <h2 class="margin-bottom-10">Cooking Time</h2>
+      <p>Form Edit Data Resep</p>
+      <form class="templatemo-login-form" method="POST" enctype="multipart/form-data">
+        <div class="row form-group">
+          <div class="col-lg-6 col-md-6 form-group">                  
+              <label >Judul Resep</label>
+              <input name="title" type="text" class="form-control"value="{{resep.title}}"  >                  
+          </div>
+          <div class="col-lg-6 col-md-6 form-group">                  
+              <label>Porsi</label>
+              <input name ="porsi" type="text" class="form-control"value="{{resep.porsi}}" >                  
+          </div> 
+          <div class="col-lg-6 col-md-6 form-group">                  
+              <label>Kata Kunci</label>
+              <input name="kunci" type="text" class="form-control"value="{{resep.kunci}}" >                  
+          </div>
+          <div class="col-lg-6 col-md-6 form-group">                  
+            <label>Tingkat kesulitan</label>
+            <input name="tingkat" type="text" class="form-control"value="{{resep.tingkat}}" >                  
+        </div>
+        <div class="col-lg-6 col-md-6 form-group">                  
+            <label>Waktu Memasak</label>
+            <input name="waktu" type="text" class="form-control" value="{{resep.waktu}}" >                  
+        </div>
+        <div class="row form-group">
+          <div class="col-lg-12">
+            <label class="control-label templatemo-block">Gambar Input</label> 
+            <input type="file" name="gambar" class="filestyle" data-buttonName="btn-primary" data-buttonBefore="true" data-icon="false">
+            <p>Maximum upload size is 5 MB.</p>                  
+          </div>
+        </div>
+        <div class="form-group text-right">
+          <button type="submit" class="templatemo-blue-button">Update</button>
+          <button type="reset" class="templatemo-white-button">Reset</button>
+        </div>                           
+      </form>
+    </div>
+  </div>
+  {% endblock content %}

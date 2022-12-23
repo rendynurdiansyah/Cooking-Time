@@ -1,0 +1,25 @@
+{% load static %}
+<div class="templatemo-sidebar">
+    <header class="templatemo-site-header">
+      <div class="square"></div>
+      <h1>Cooking Time </h1>
+    </header>
+    <div class="profile-photo-container">
+      <img src="{% static 'pengurus/images/profile-photo.jpg' %}" alt="Profile Photo" class="img-responsive">  
+      <div class="profile-photo-overlay"></div>
+    </div>      
+    <!-- Search box -->
+    
+    <div class="mobile-menu-icon">
+        <i class="fa fa-bars"></i>
+    </div>
+    <nav class="templatemo-left-nav">          
+      <ul>
+        <li><a href="{% url 'dashboard' %}" class="active"><i class="fa fa-home fa-fw"></i>Dashboard</a></li>
+        <li><a href="{% url 'tabel_resep' %}"><i class="fa fa-database fa-fw"></i>Tabel Resep</a></li>
+        <li><a href="{% url 'tabel_artikel' %}"><i class="fa fa-users fa-fw"></i>Tabel Artikel</a></li>
+        <li><a href="{% url 'tabel_users' %}"><i class="fa fa-sliders fa-fw"></i>Tabel User</a></li>
+        <li><a href="{% url 'logout' %}"><i class="fa fa-eject fa-fw"></i>Logout</a></li>
+      </ul>  
+    </nav>
+  </div>

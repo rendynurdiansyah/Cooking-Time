@@ -1,0 +1,40 @@
+{% extends 'pengurus/base.html' %}
+{% load static %}
+{% block content %}
+<center><h1>Tabel Resep</h1></center>
+<a class ="btn btn-sm btn-danger" href="{% url 'sinkron_resep' %}"> Sinkron Resep</a>&ensp;&ensp; &ensp;
+<div class="templatemo-content-widget no-padding">
+    <div class="panel panel-default table-responsive">
+      <table class="table table-striped table-bordered templatemo-user-table">
+        <thead>
+          <tr>
+            <td><a href="" class="white-text templatemo-sort-by"># <span class="caret"></span></a></td>
+            <td><a href="" class="white-text templatemo-sort-by">Porsi <span class="caret"></span></a></td>
+            <td><a href="" class="white-text templatemo-sort-by">Title <span class="caret"></span></a></td>
+            <td><a href="" class="white-text templatemo-sort-by">Kunci <span class="caret"></span></a></td>
+            <td><a href="" class="white-text templatemo-sort-by">Tingkat Kesulitan <span class="caret"></span></a></td>
+            <td><a href="" class="white-text templatemo-sort-by">Waktu Memasakan <span class="caret"></span></a></td>
+            <td><a href="" class="white-text templatemo-sort-by">Gambar <span class="caret"></span></a></td>
+            <td>Action</td>
+          </tr>
+        </thead>
+        <tbody>
+            {% for a in resep %}
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{a.porsi}}</td>
+            <td>{{a.title}}</td>
+            <td>{{a.kunci}}</td>
+            <td>{{a.tingkat}}</td>
+            <td>{{a.tingkat}}</td>
+            <td>{{a.gambar}}</td>
+            <td><a href="{% url 'lihat_resep' a.id %}" class="btn btn-warning">Lihat</a>
+            <a href="{% url 'edit_resep' a.id %}" class="btn btn-danger">Edit</a>
+            <a href="{% url 'delete_resep' a.id %}" class="btn btn-success">Delete</a></td>
+          </tr>  
+          {% endfor %}                  
+        </tbody>
+      </table>    
+    </div>                          
+  </div>
+  {% endblock content %}
