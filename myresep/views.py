@@ -37,34 +37,34 @@ def blog_page(request):
         'resep' : resep
     }
     return render(request, template_name, context)
-def blog_page(request):
-    resep = Resep.objects.all()
-    url = "https://masak-apa-tomorisakura.vercel.app/api/recipes"
+# def blog_page(request):
+#     resep = Resep.objects.all()
+#     url = "https://masak-apa-tomorisakura.vercel.app/api/recipes"
 
 
-    data = requests.get(url).json()
+#     data = requests.get(url).json()
 
-    a = data['results']
-    title = []
-    porsi = []
-    kunci = []
-    waktu = []
-    tingkat =[]
-    gambar = []
+#     a = data['results']
+#     title = []
+#     porsi = []
+#     kunci = []
+#     waktu = []
+#     tingkat =[]
+#     gambar = []
 
-    for i in range(len(a)):
-        f = a[i]
-        porsi.append(f['serving'])
-        title.append(f['title'])
-        kunci.append(f['key'])
-        tingkat.append(f['difficulty'])
-        waktu.append(f['times'])
-        gambar.append(f['thumb'])
+#     for i in range(len(a)):
+#         f = a[i]
+#         porsi.append(f['serving'])
+#         title.append(f['title'])
+#         kunci.append(f['key'])
+#         tingkat.append(f['difficulty'])
+#         waktu.append(f['times'])
+#         gambar.append(f['thumb'])
 
-    mylist = zip(title, porsi, kunci,waktu, tingkat,gambar)
-    context ={'mylist':mylist,'resep':resep}
+#     mylist = zip(title, porsi, kunci,waktu, tingkat,gambar)
+#     context ={'mylist':mylist,'resep':resep}
 
-    return render(request, 'front/blog-page.html', context)
+#     return render(request, 'front/blog-page.html', context)
 
 def base(request):
     template_name = 'front/base.html'
@@ -81,12 +81,6 @@ def about_us(request):
     return render(request, template_name, context)
 def contact_us(request):
     template_name = 'front/contact-us.html'
-    context = {
-        'title':'form',
-    }
-    return render(request, template_name, context)
-def isi(request):
-    template_name = 'front/isi.html'
     context = {
         'title':'form',
     }
@@ -156,5 +150,13 @@ def detail_artikel(request, id):
     context = {
         'title' : 'View Artikel',
         'artikel' :artikel,
+    }
+    return render(request, template_name, context)
+def isi(request,id):
+    template_name = 'front/isi.html'
+    resep = Resep.objects.get(id=id)
+    context = {
+        'title':'form',
+        'resep' : resep,
     }
     return render(request, template_name, context)

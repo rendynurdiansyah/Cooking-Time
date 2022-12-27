@@ -133,82 +133,46 @@
      </div>
 
 
-{% comment %} {% for a in artikel  %}
+    
     <div class="section">
            <div class="container">
                <h2 class="section-title">Daftar Resep </h2>
                <div class="row">
-                    <div class="mb-3" >
+                {% for a in resep %}
+                    <div class="col-md-4" >
                         <div class="card card-plain">
                             <div class="image">
-                                <img src="{%static 'front/img/6.jpg' %}" alt="..." />
+                                <img src= "{{a.strMealThumb}}" alt="..." />
                                 <div class="filter filter-white">
-                                    <a href="{% url 'isi' %}" ="button" class="btn btn-info btn-round btn-fill">
+                                    <a href="{% url 'isi' a.id %}" ="button" class="btn btn-info btn-round btn-fill">
                                         <i class="fa fa-book"></i> Read More
                                     </a>
                                 </div>
                             </div>
                             <div class="content">
-                                <p class="category">{{a.kategori}}</p>
+                                <p class="category">{{a.strCategory}}</p>
                                 <a class="card-link" href="#">
-                                    <h4 class="title">{{a.judul}}</h4>
+                                    <h4 class="title">{{a.strMeal}}</h4>
                                 </a>
                                  <div class="footer">
                                     <div class="author">
-                                        <a class="card-link" href="#">
-                                           <img src="{%static 'front/img/default-avatar.png' %}" alt="..." class="avatar">
-                                           <span> {{a.nama}}</span>
+                                        <a class="card-link" href="{% url 'isi' a.id %}">
+                                           <img src="{%static 'front/img/avatar.jpg' %}" alt="..." class="avatar">
+                                           <span> {{a.strTags}}</span>
                                         </a>
                                     </div>
                                     <div class="stats pull-right">
-                                        <i class="fa fa-clock-o"></i> 7 min read
+                                        <i class="fa fa-clock-o"></i> {{a.strArea}}
                                     </div>
                                 </div>
                             </div>
                         </div> <!-- end card -->
                     </div>
+                    {% endfor %}
                </div>
            </div>
     </div><!-- section -->
-    {% endfor %} {% endcomment %}
-    {% for a in resep%}
-    <div class="section">
-           <div class="container">
-               <h2 class="section-title">Daftar Resep </h2>
-               <div class="row">
-                    <div class="mb-3" >
-                        <div class="card card-plain">
-                            <div class="image">
-                                <img src= "{{a.gambar}}" alt="..." />
-                                <div class="filter filter-white">
-                                    <a href="{% url 'isi' %}" ="button" class="btn btn-info btn-round btn-fill">
-                                        <i class="fa fa-book"></i> Read More
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="content">
-                                <p class="category">{{a.kunci}}</p>
-                                <a class="card-link" href="#">
-                                    <h4 class="title">{{a.title}}</h4>
-                                </a>
-                                 <div class="footer">
-                                    <div class="author">
-                                        <a class="card-link" href="{% url 'isi' %}">
-                                           <img src="{%static 'front/img/default-avatar.png' %}" alt="..." class="avatar">
-                                           <span> {{a.porsi}}</span>
-                                        </a>
-                                    </div>
-                                    <div class="stats pull-right">
-                                        <i class="fa fa-clock-o"></i> {{a.waktu}}
-                                    </div>
-                                </div>
-                            </div>
-                        </div> <!-- end card -->
-                    </div>
-               </div>
-           </div>
-    </div><!-- section -->
-    {% endfor %}
+  
 
     
 

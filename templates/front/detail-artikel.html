@@ -94,73 +94,30 @@
     </nav>
 
 <div class="wrapper">
-    <div class="parallax">
+    <div class="parallax filter-black">
         <div class="parallax-image">
-            <img src="{%static 'front/img/thumb.jpg' %}" alt="..." />
+            <img src="{% static 'front/img/7.jpg' %}" alt="..." />
+        </div>
+        <div class="small-info">
+            <h1>Cooking Time</h1>
+            <h3>Segala Resep Makanan dan Minuman ada di sini </h3>
         </div>
     </div>
-
-     <div class="section">
-           <div class="container">
-               <div class="row">
-                  <div class="col-md-8 bottom-border">
-                    <h1 class="title title-blog">{{artikel.judul}}</h1>
-                    <hr>
-                    
-                    <p>{{artikel.body}}</p>
-                    <br>
-                    <br>
-                </div>
-
-                {% comment %} <div class="col-md-3 col-md-offset-1">
-                  <div class="social-buttons">
-                      <h3 class="title title-blog">Shares &middot; 3,4K</h3>
-                      <a href="#" class="btn btn-social btn-round btn-fill btn-facebook">
-                          <i class="fa fa-facebook"></i>
-                      </a>
-                      <a href="#"  class="btn btn-social btn-round btn-fill btn-twitter">
-                          <i class="fa fa-twitter"></i>
-                      </a>
-                      <a href="#" class="btn btn-social btn-round btn-fill btn-google">
-                          <i class="fa fa-google-plus"></i>
-                      </a>
-                      <a href="#" class="btn btn-social btn-round btn-fill btn-pinterest">
-                          <i class="fa fa-pinterest"></i>
-                      </a>
-                  </div>
-
-
-                  <h3 class="title title-blog">Tags </h3>
-                  <span class="label label-warning label-fill">Food</span>
-                  <span class="label label-warning label-fill">Health</span>
-                  <span class="label label-warning label-fill">Lifestyle</span>
-                  <span class="label label-warning label-fill">Breakfast</span>
-
-                  <h3 class="title title-blog">Author</h3>
-                  <div class="media media-author">
-                      <a class="pull-left" href="#">
-                        <div class="avatar">
-                            <img class="media-object" src="{%static 'front/img/default-avatar.png' %}" alt="...">
-                        </div>
-                      </a>
-                      <div class="media-body">
-                        <h6 class="media-heading">Creative Tim</h6>
-                        <p class="text-muted">Moderator</p>
-                      </div>
-                      <p>Tim thinks communication is key and he enjoys all the feedback you give him</p>
-                      <button class="btn btn-round btn-info btn-sm">
-                                Follow
-                      </button>
-                  </div>
-                </div> {% endcomment %}
-            </div>
-          </div>
+    <br><br><br><br><br>
+    <div class="container">
+        <div class="col-4">
+           <div class="img-container">
+               <img src="{{artikel.image}}" alt="..." height="400" width="800" />
+           </div>
+        </div>
     </div>
-
-    
-
-
-
+    <div class="container">
+        <div class="col-6">
+            <h1>{{artikel.judul}}</h1>
+            <p class="category">{{a.kategori}}</p>
+            <p> {{artikel.body|safe }} </p>
+        </div>
+    </div>
 
 </div> <!-- wrapper -->
 </body>

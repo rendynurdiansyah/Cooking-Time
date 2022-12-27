@@ -112,52 +112,83 @@ def delete_artikel(request,id):
     return redirect(artikel)
 
 def sinkron_resep(request):
-        url = "https://masak-apa-tomorisakura.vercel.app/api/recipes"
+        url = "https://www.themealdb.com/api/json/v1/1/search.php?s=Kafteji"
         data = requests.get(url).json()
-        for d in data['results']:
-            cek_berita = Resep.objects.filter(porsi=d['serving'])
+        for d in data['meals']:
+            cek_berita = Resep.objects.filter(idMeal=d['idMeal'])
             if cek_berita:
                 print('data sudah ada')
                 c = cek_berita.first()
-                c.porsi=d['serving']
+                c.idMeal=d['idMeal']
                 c.save()
             else: 
                 #jika belum ada maka tulis baru kedatabase
                 b = Resep.objects.create(
-                    porsi = d['serving'],
-                    title = d['title'],
-                    kunci = d['key'],
-                    tingkat = d['difficulty'],
-                    waktu = d['times'],
-                    # gambar = d['thumb'],
-                )
-        return redirect(resep)
+                    idMeal= d['idMeal'],
+                    strMeal = d['strMeal'],
+                    strDrinkAlternate = d['strDrinkAlternate'],
+                    strCategory = d['strCategory'],
+                    strArea = d['strArea'],
+                    strInstructions = d['strInstructions'],
+                    strTags= d['strTags'],
+                    strYoutube = d['strYoutube'],
+                    strMealThumb = d['strMealThumb'],
+                    strIngredient1 = d['strIngredient1'],
+                    strIngredient2= d['strIngredient2'],
+                    strIngredient3 = d['strIngredient3'],
+                    strIngredient4 = d['strIngredient4'],
+                    strIngredient5 = d['strIngredient5'],
+                    strIngredient6 = d['strIngredient6'],
+                    strIngredient7 = d['strIngredient7'],
+                    strIngredient8 = d['strIngredient8'],
+                    strIngredient9 = d['strIngredient9'],
+                    strIngredient10 = d['strIngredient10'],
+                    strIngredient11 = d['strIngredient11'],
+                    strIngredient12 = d['strIngredient12'],
+                    strIngredient13 = d['strIngredient13'],
+                    strIngredient14 = d['strIngredient14'],
+                    strMeasure1 = d['strMeasure1'],
+                    strMeasure2 = d['strMeasure2'],
+                    strMeasure3 = d['strMeasure3'],
+                    strMeasure4 = d['strMeasure4'],
+                    strMeasure5 = d['strMeasure5'],
+                    strMeasure6 = d['strMeasure6'],
+                    strMeasure7 = d['strMeasure7'],
+                    strMeasure8 = d['strMeasure8'],
+                    strMeasure9 = d['strMeasure9'],
+                    strMeasure10 = d['strMeasure10'],
+                    strMeasure11 = d['strMeasure11'],
+                    strMeasure12 = d['strMeasure12'],
+                    strMeasure13 = d['strMeasure13'],
+                    strMeasure14 = d['strMeasure14'],
+                    )  
+                return redirect(resep)
 
-def edit_resep(request ,id ):
-    template_name = 'pengurus/edit_resep.html'
-    resep = Resep.objects.all()
-    a = Resep.objects.get(id=id)
-    if request.method == "POST":
+# def edit_resep(request ,id ):
+#     template_name = 'pengurus/edit_resep.html'
+#     resep = Resep.objects.all()
+#     a = Resep.objects.get(id=id)
+#     if request.method == "POST":
         
-        nama = request.POST.get('nama')
-        judul = request.POST.get('judul')
-        body = request.POST.get('body')
+#         nama = request.POST.get('nama')
+#         judul = request.POST.get('judul')
+#         body = request.POST.get('body')
 
-        #input Kategori Dulu
+#         #input Kategori Dulu
         
 
-        #simpan produk karena ada relasi ke tabel kategori 
-        a.nama = nama
-        a.judul = judul
-        a.body = body
-        a.save() 
-        return redirect(resep)
-    context = {
-        'title':'Edit Resep',
-        'resep' : resep,
+#         #simpan produk karena ada relasi ke tabel kategori 
+#         a.nama = nama
+#         a.judul = judul
+#         a.body = body
+#         a.save() 
+#         return redirect(resep)
+#     context = {
+#         'title':'Edit Resep',
+#         'resep' : resep,
 
-    }
-    return render(request, template_name, context)
+#     }
+#     return render(request, template_name, context)
 
 
 @login_required

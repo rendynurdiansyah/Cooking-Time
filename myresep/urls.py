@@ -18,7 +18,7 @@ urlpatterns = [
     path('about_us', about_us, name='about_us'),
     path('blog_page', blog_page, name='blog_page'),
     path('contact_us', contact_us, name='contact_us'),
-    path('isi', isi, name='isi'),
+    path('resep/<int:id>/isi/', isi, name='isi'),
 
     path('login/', login, name='login'),
     path('logout/', logout_view, name='logout'),
@@ -29,6 +29,6 @@ urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
 
+urlpatterns += staticfiles_urlpatterns()
 if settings.DEBUG:
-    urlpatterns += staticfiles_urlpatterns()
     urlpatterns += static(settings.MEDIA_URL, decument_root=settings.MEDIA_ROOT)

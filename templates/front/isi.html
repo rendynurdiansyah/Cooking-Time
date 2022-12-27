@@ -95,49 +95,60 @@
 
     
     <div class="wrapper">
-        <div class="parallax">
+        <div class="parallax filter-black">
             <div class="parallax-image">
-                <img src="{%static 'front/img/nasi.png' %}" alt="..." />
+                <img src="{% static 'front/img/7.jpg' %}" alt="..." />
+            </div>
+            <div class="small-info">
+                <h1>Cooking Time</h1>
+                <h3>Segala Resep Makanan dan Minuman ada di sini </h3>
             </div>
         </div>
         <br>
     <div class="section">
         <div class="container">
+            <div class="col-4">
+               <div class="img-container">
+                   <img src="{{resep.strMealThumb}}" alt="..." height="400" width="800" />
+               </div>
+            </div>
+        </div>
+        <div class="container">
                <div class="row">
                   <div class="col-6 bottom-border">
-                    <center><h1 class="title title-blog">Resep Membuat Nasi Goreng Panggang Cup</h1></center>
-                    <p>Berikut bahan dan cara membuat nasi goreng cup:</p>
+                    <center><h1 class="title title-blog">{{resep.strMeal}}</h1></center>
+                    <p>Berikut bahan dan cara membuat:</p>
                         <p>Bahan-bahan:</p>
-                            <p>1 cup beras, masak menjadi nasi</p>
+                            <p>1.{{resep.strIngredient1}},{{resep.strMeasure1}}</p>
                         
-                            <p>2 lembar daging asap, iris tipis</p>
+                            <p>2.{{resep.strIngredient2}},{{resep.strMeasure2}}</p>
                         
-                            <p>Campuran kacang polong dan jagung beku secukupnya</p>
+                            <p>3.{{resep.strIngredient3}},{{resep.strMeasure3}}</p>
                         
-                            <p>2 siung bawang putih,  memarkan</p>
+                            <p>4.{{resep.strIngredient4}},{{resep.strMeasure4}}</p>
                         
-                            <p>2 batang daun bawang, iris tipis</p>
+                            <p>5.{{resep.strIngredient5}},{{resep.strMeasure5}}</p>
                         
-                            <p>1 buah paprika merah kecil, cincang halus</p>
+                            <p>6.{{resep.strIngredient6}},{{resep.strMeasure6}}</p>
                         
-                            <p>38 gram tepung terigu</p>
+                            <p>7.{{resep.strIngredient7}},{{resep.strMeasure7}}</p>
                         
-                            <p>2 butir telur, kocok lepas</p>
+                            <p>8.{{resep.strIngredient8}},{{resep.strMeasure8}}</p>
                         
-                            <p>2 buah cabai merah, iris tipis (opsional)</p>
+                            <p>9.{{resep.strIngredient9}},{{resep.strMeasure9}}</p>
                         
-                            <p>2 sendok kecap manis</p>
+                            <p>10.{{resep.strIngredient10}},{{resep.strMeasure10}}</p>
                         
-                            <p>Minyak canola secukupnya</p>
+                            <p>11.{{resep.strIngredient11}},{{resep.strMeasure11}}</p>
                         
                         <p> Cara membuat:</p>
-                            <p> 1. Panaskan oven sampai 220C. Siapkan loyang muffin 12 lubang, kemudian oles dengan sedikit minyak canola.</p>
-                        
-                            <p> 2. Campurkan daging asap, kacang polong dan jagung, paprika, daun bawang, bawang putih dan tepung bersama dengan nasi, bumbui dengan garam dan merica, aduk rata. Tambahkan telur dan kecap manis, aduk rata kembali.</p>
-                        
-                            <p>3. Tuangkan campuran nasi ke dalam setiap lubang pada loyang yang telah disiapkan, tekan sedikit dengan menggunakan bagian belakang sendok. Tambahkan irisan cabe di atasnya. Jika suka, tambahkan sedikit minyak canola. Panggang selama 20 sampai 25 menit atau sampai berwarna keemasan.</p>
-                        
-                            <p>Matikan oven, diamkan nasi panggang selama 10 menit di dalam loyang. Setelah itu keluarkan nasi panggang dari loyang, sajikan selagi hangat.</p>
+                            <p>{{resep.strInstructions}}</p>
+                            <div class="container">
+                                <div class="content-video">
+                                <!-- Tempatkan Video Youtube Disini -->
+                                <iframe width="560" height="315" src="{{resep.strYoutube}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                              </div>
                 </div>
 
 
